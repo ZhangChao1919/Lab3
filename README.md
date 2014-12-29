@@ -1,32 +1,6 @@
 Magic-Square
 
-A. Problems We Met:
-1. Because there are two classes which will inherit the same base class, we need to include the header of base class. However, the compiler always informs us of the mistake of redefinition since we have include the same header twice.
-Solution:
-To solve this problem, we use the following codes:
-#ifndef HEADER_H_
-#define HEADER_H_
-#endif
-The code above is used to check if a header is included repeated and automatically avoid the mistake. In this way, we solve the problem.
-
-2. In the process of coding, we always ran into the bug that “ a type of value cannot be assigned into a type of entity “ when we use the “new” code to construct a new object of “NineAlmondsGame” or “MagicSquareGame” and assign it to a “GameBase” type pointer.
-Solution:
-It is a really difficult debugging because according to the mistake hint we cannot figure out why our “NineAlmondsGame” or “MagicSquareGame” become types of value. After our discussion and checking, we find that it is caused by that we redefined the class, i.e. we repeatedly include the same header file. Knowing that, we successfully solved this problem  by the solution to our problem 1.
-
-3. In the Extra Credit Task, we find that the available pieces should be considered into different cases so that it will be printed out according to the different minimum of starting point typed in by the users.
-Solution:
-After our discussion and the calculation on the paper, we find that if the user typed in a negative number or zero as starting point, then the maximum should be 1 less than the original maximum because in this case “0” also occupies a valid position. And if the user typed in a positive number as starting point, then the maximum should be calculated as before. Therefore, we successfully solved the problem.
-
-4. In the process of coding, we ran into a problem that when we used “new” to create a new object of our subclass, i.e. “NineAlmondsGame” or “MagicSquareGame”. The compiler told us that it failed to do so.
-Solution:
-We found that if we want to create a new object of our class we must override all the virtual functions in our base class. If we failed to do so, the class actually is a “virtual” class and therefore cannot be created with “new” command.
-
-5. When we programmed by using the setw() function, we got confused because it was always printed out problematically. The width between the numbers is very weird and we do not know why it is printed in this way.
-Solution:
-After we looked it up via Internet, we found that the setw() function will set the number of characters to be used as the field width for the next insertion operation rather than the space between two numbers. Therefore, we calculated the according formula to determine the right width and successfully solved this problem.
-
-
-B. Testing and Results:
+Testing and Results:
 enum return_value{success=0, fail=1, wrongGameName=2, too_many_input=3, not_enough_input=4, unable_to_read_coordinate=5, invalidMove=6, stalemateOccured=7, ninealmond_user_quit=8, magicsqure_user_quit=9, bad_Alloc=10,unkown_exception=11, other_exeception=12};
 
 1. Test of NineAlmondsGame:
